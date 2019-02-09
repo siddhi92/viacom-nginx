@@ -4,7 +4,7 @@ $sudo yum -y update
 $sudo yum install git
 ```
 
-#Install Jenkins
+# Install Jenkins & Start Service
 ```sh
 #Jenkins needs JDK1.8 but AMI has JDK1.7 pre-installed
 #Install JDK1.8 and remove JDK1.7
@@ -21,4 +21,17 @@ $sudo yum install jenkins
 
 #To ensure that Jenkins starts evertime your EC2 instance starts
 $sudo chkconfig --add jenkins
+```
+# Install & Start NGINX Server
+
+```sh
+$sudo yum install nginx
+$sudo /etc/init.d/nginx start
+```
+
+# Providing sudo access for Jenkins to run scripts
+```sh
+$sudo visudo
+#Go to the end of the file and append the following line
+jenkins ALL=(ALL) NOPASSWD: ALL
 ```
