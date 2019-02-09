@@ -23,7 +23,7 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                  sudo cp index.html /usr/share/nginx/html/
+                  sh label: '', script: 'sudo cp index.html /usr/share/nginx/html/'
 				  echo "Successfully Deployed on Nginx!!";
             }
         }
